@@ -1,0 +1,29 @@
+<div>
+    <pre>
+        {{ information.headers | json }}
+    </pre>
+</div>
+<!-- <p-multiSelect
+    [options]="information"
+    [(ngModel)]="filtrosSeleccionados"
+    defaultLabel="Filtrar por"
+    optionLabel="name"
+    selectedItemsLabel="{0} items selected"
+></p-multiSelect>
+
+<div class="card">
+    <p-table responsiveLayout="scroll" [value]="information">
+        <ng-template pTemplate="header" let-data>
+            <tr>
+                <th *ngFor="let header of data.headers">
+                    {{ header.label }}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+            <tr *ngFor="let col of data.data">
+                <td>{{ obtenerValor(col) }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div> -->
