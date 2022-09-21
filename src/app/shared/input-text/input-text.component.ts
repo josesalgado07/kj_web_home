@@ -4,8 +4,6 @@ import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'kj-input-text',
-  standalone: true,
-  imports: [CommonModule, InputTextModule],
   template: `
     <div>
       <span class="p-float-label">

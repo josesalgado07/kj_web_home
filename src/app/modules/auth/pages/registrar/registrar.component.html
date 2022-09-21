@@ -1,0 +1,75 @@
+<div class="flex justify-content-center">
+    <p-card class="col-12 md:col-8 lg:col-6 mt-6">
+        <h5 class="mt-0 pt-0">{{ 'REGISTRAR.titulo' | translate }}</h5>
+
+        <form [formGroup]="registroForm" autocomplete="off" (ngSubmit)="registrar()">
+            <div class="grid p-fluid">
+                <div class="field col-12 md:col-6">
+                    <label>{{ 'REGISTRAR.txtNombre' | translate }}</label>
+                    <input type="text" pInputText formControlName="nombre">
+                    <div *ngIf="formErrors.mostrarError(registroForm, 'nombre') && (nombre.dirty || nombre.touched)">
+                        <small class="p-error">
+                            {{
+                                'REGISTRAR.FormErrors.' + formErrors.errorMsg(registroForm, 'nombre') | translate
+                            }}
+                        </small>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-6">
+                    <label>{{ 'REGISTRAR.txtApellido' | translate }}</label>
+                    <input type="text" pInputText formControlName="apellido">
+                    <div *ngIf="formErrors.mostrarError(registroForm, 'apellido') && (apellido.dirty || apellido.touched)">
+                        <small class="p-error">
+                            {{
+                                'REGISTRAR.FormErrors.' + formErrors.errorMsg(registroForm, 'apellido') | translate
+                            }}
+                        </small>
+                    </div>
+                </div>
+                <div class="field col-12">
+                    <label>{{ 'REGISTRAR.txtUsuario' | translate }}</label>
+                    <input type="text" pInputText formControlName="usuario">
+                    <div *ngIf="formErrors.mostrarError(registroForm, 'usuario') && (usuario.dirty || usuario.touched)">
+                        <small class="p-error">
+                            {{
+                                'REGISTRAR.FormErrors.' + formErrors.errorMsg(registroForm, 'usuario') | translate
+                            }}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="field col-12 md:col-6">
+                    <label>{{ 'REGISTRAR.txtPassword' | translate }}</label>
+                    <input [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="contrasena">
+                    
+                    <div *ngIf="formErrors.mostrarError(registroForm, 'contrasena') && (contrasena.dirty || contrasena.touched)">
+                        <small class="p-error">
+                            {{
+                                'REGISTRAR.FormErrors.' + formErrors.errorMsg(registroForm, 'contrasena') | translate
+                            }}
+                        </small>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-6">
+                    <label>{{ 'REGISTRAR.txtConfPassword' | translate }}</label>
+                    <input [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="confirmacion">
+                    <div *ngIf="formErrors.mostrarError(registroForm, 'confirmacion') && (confirmacion.dirty || confirmacion.touched)">
+                        <small class="p-error">
+                            {{
+                                'REGISTRAR.FormErrors.' + formErrors.errorMsg(registroForm, 'confirmacion') | translate
+                            }}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="field col-12 pt-0">
+                    <p-checkbox 
+                        value="true"
+                        label="{{ 'LOGIN.txtMostrarPass' | translate }}"
+                        (onChange)="hide()">
+                    </p-checkbox>
+                </div>
+            </div>
+        </form>
+    </p-card>
+</div>

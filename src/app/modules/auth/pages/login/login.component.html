@@ -1,1 +1,57 @@
-<h1>Login</h1>
+<div class="flex justify-content-center">
+    <p-card class="col-12 md:col-6 lg:col-4 mt-6">
+        <h5 class="mt-0 pt-0">{{ 'LOGIN.titulo' | translate }}</h5>
+        <form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="ingresar()">
+            <div class="field">
+                <label>{{ 'LOGIN.txtUsuario' | translate }}</label>
+                <input id="username" type="text" pInputText formControlName="usuario">
+
+                <div *ngIf="formErrors.mostrarError(loginForm, 'usuario') && (usuario.dirty || usuario.touched)">
+                    <small class="p-error">
+                        {{
+                            'LOGIN.FormErrors.' + formErrors.errorMsg(loginForm, 'usuario') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label>{{ 'LOGIN.txtPassword' | translate }}</label>
+                <input id="password" [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="contrasena">
+
+                <div *ngIf="formErrors.mostrarError(loginForm, 'contrasena') && (contrasena.dirty || contrasena.touched)">
+                    <small class="p-error">
+                        {{
+                            'LOGIN.FormErrors.' + formErrors.errorMsg(loginForm, 'contrasena') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+            <div class="field">
+                <p-checkbox 
+                    value="true"
+                    label="{{ 'LOGIN.txtMostrarPass' | translate }}"
+                    (onChange)="hide()">
+                </p-checkbox>
+            </div>
+            <div class="flex justify-content-end">
+                <a href="#">¿Olvido contraseña?</a>
+            </div>
+
+            <div class="flex justify-content-between mt-4">
+                <div class="flex align-items-start">
+                    <a href="#" routerLink="/signup">Crear cuenta</a>
+                </div>
+                <div class=" flex align-items-end">
+                    <button
+                        pButton
+                        type="submit"
+                        class="p-button-primary"
+                        [disabled]="loginForm.invalid">
+                        {{ 'LOGIN.btnIngresar' | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </p-card>
+</div>

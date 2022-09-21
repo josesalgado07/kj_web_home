@@ -1,3 +1,25 @@
 {
-    
+    "LOGIN": {
+        "titulo": "Inicio de Sesión",
+        "txtUsuario": "Usuario",
+        "txtPassword": "Contraseña",
+        "btnIngresar": "Ingresar",
+        "txtCrear": "Crear cuenta",
+        "txtOlvido": "¿Olvidaste la contraseña?",
+        "txtMostrarPass": "Mostrar contraseña",
+        "FormErrors" : {
+            "required": "Campo obligatorio"
+        }
+    },
+    "REGISTRAR": {
+        "titulo": "Crea tu cuenta",
+        "txtNombre": "Nombre",
+        "txtApellido": "Apellido",
+        "txtUsuario": "Nombre de usuario",
+        "txtPassword": "Contraseña",
+        "txtConfPassword": "Confirmación",
+        "FormErrors" : {
+            "required": "Campo obligatorio"
+        }
+    }
 }

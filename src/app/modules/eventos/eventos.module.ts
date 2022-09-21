@@ -10,6 +10,7 @@ import { CalendarComponent } from 'src/app/shared/calendar/calendar.component';
 import { TableFilterComponent } from 'src/app/shared/table-filter/table-filter.component';
 
 import { CardModule } from 'primeng/card';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,9 @@ import { CardModule } from 'primeng/card';
     CardModule,
 
     //standalone components
-    InputTextComponent,
     CalendarComponent,
-    TableFilterComponent
+    TableFilterComponent,
+    SharedModule
   ]
 })
 export class EventosModule { }

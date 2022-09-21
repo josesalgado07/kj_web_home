@@ -9,39 +9,45 @@ import { AppComponent } from './app.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import localeEs from '@angular/common/locales/es';
 import localeEn from '@angular/common/locales/en';
 import { registerLocaleData } from '@angular/common';
+import { LoginComponent } from '@modules/auth/pages/login/login.component';
+import { PrimengModule } from '@core/modules/primeng/primeng.module';
+import { RegistrarComponent } from '@modules/auth/pages/registrar/registrar.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeEn, 'en');
 
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    PrimengModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: httpLoaderFactory,
         deps: [HttpClient]
       }
     })
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es' },
   ],
   bootstrap: [AppComponent]
 })
