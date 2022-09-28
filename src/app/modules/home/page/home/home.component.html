@@ -1,5 +1,12 @@
 <!-- Header de la aplicación -->
 <kj-header></kj-header>
 
-<!-- Body -->
-<router-outlet></router-outlet>
+<div class="grid">
+    <div class="md:col-3 lg:col-3">
+        <kj-menu></kj-menu>
+    </div>
+    <div class="md:col-9 lg:col-9 p-3">
+        <!-- Body -->
+        <router-outlet></router-outlet>
+    </div>
+</div>

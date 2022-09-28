@@ -1,8 +1,6 @@
-h5 {
-    font-family: Poppins-Bold;
-    font-size: 1.5rem;
-}
+:host ::ng-deep {
+    input {
+        width: 100% !important;
+    }
 
-input {
-    width: 100% !important;
 }

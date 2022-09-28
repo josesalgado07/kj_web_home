@@ -18,6 +18,7 @@
         "txtUsuario": "Nombre de usuario",
         "txtPassword": "Contraseña",
         "txtConfPassword": "Confirmación",
+        "btnRegistrar": "Registrar",
         "FormErrors" : {
             "required": "Campo obligatorio"
         }

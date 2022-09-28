@@ -1,6 +1,6 @@
 <div class="flex justify-content-center">
     <p-card class="col-12 md:col-6 lg:col-4 mt-6">
-        <h5 class="mt-0 pt-0">{{ 'LOGIN.titulo' | translate }}</h5>
+        <p class="mt-0 pt-0 title md:text-2xl">{{ 'LOGIN.titulo' | translate }}</p>
         <form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="ingresar()">
             <div class="field">
                 <label>{{ 'LOGIN.txtUsuario' | translate }}</label>
@@ -35,12 +35,14 @@
                 </p-checkbox>
             </div>
             <div class="flex justify-content-end">
-                <a href="#">¿Olvido contraseña?</a>
+                <a href="#">{{ 'LOGIN.txtOlvido' | translate }}</a>
             </div>
 
             <div class="flex justify-content-between mt-4">
                 <div class="flex align-items-start">
-                    <a href="#" routerLink="/signup">Crear cuenta</a>
+                    <a href="#" routerLink="/signup">
+                        {{ 'LOGIN.txtCrear' | translate }}
+                    </a>
                 </div>
                 <div class=" flex align-items-end">
                     <button

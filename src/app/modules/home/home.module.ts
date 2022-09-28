@@ -7,11 +7,13 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { MenubarModule } from "primeng/menubar";
 import { PrimengModule } from '@core/modules/primeng/primeng.module';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
