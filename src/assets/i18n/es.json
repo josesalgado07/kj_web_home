@@ -22,5 +22,8 @@
         "FormErrors" : {
             "required": "Campo obligatorio"
         }
+    },
+    "GENERAL": {
+        "filtro": "Filtrar por"
     }
 }

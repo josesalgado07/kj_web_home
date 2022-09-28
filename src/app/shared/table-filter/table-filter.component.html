@@ -1,32 +1,36 @@
 <form [formGroup]="tableForm">
-    <p-multiSelect
-        [options]="information"
-        formControlName="filtros"
-        defaultLabel="Filtrar por"
-        optionLabel="name"
-        selectedItemsLabel="{0} items selected"
-    ></p-multiSelect>
+    <div class="grid">
+        <p-multiSelect
+            [options]="information.headers"
+            class="col-12"
+            formControlName="filtros"
+            defaultLabel="{{ 'GENERAL.filtro' | translate }}"
+            optionLabel="label"
+            [style]="{'width':'100%'}"
+        ></p-multiSelect>
 
-    <p-table
-        [columns]="information.headers"
-        [value]="information.data"
-        [resizableColumns]="true"
-        [responsive]="true"
-        responsiveLayout="scroll"
-    >
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th scope="columna" class="white-space" *ngFor="let col of columns" [style.width]="col.width" pResizableColumn>
-                    {{ col.header | translate }}
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
-            <tr>
-                <td *ngFor="let col of columns" class="white-space" [style.width]="col.width">
-                    {{ obtenerValor(rowData, col.field) }}
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+        <p-table
+            [columns]="information.headers"
+            [value]="information.data"
+            [resizableColumns]="true"
+            [responsive]="true"
+            class="col-12"
+            responsiveLayout="scroll">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th scope="columna" class="white-space" *ngFor="let col of columns" [style.width]="col.width"
+                        pResizableColumn>
+                        {{ col.label | translate }}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                <tr>
+                    <td *ngFor="let col of columns" class="white-space" [style.width]="col.width">
+                        {{ obtenerValor(rowData, col.field) }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </form>
