@@ -9,6 +9,10 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [],
@@ -21,7 +25,11 @@ import { SidebarModule } from 'primeng/sidebar';
     CheckboxModule,
     MenuModule,
     PanelModule,
-    SidebarModule
+    SidebarModule,
+    AvatarModule,
+    AvatarGroupModule,
+    MultiSelectModule,
+    TableModule
   ],
   exports: [
     CardModule,
@@ -31,7 +39,11 @@ import { SidebarModule } from 'primeng/sidebar';
     CheckboxModule,
     MenuModule,
     PanelModule,
-    SidebarModule
+    SidebarModule,
+    AvatarModule,
+    AvatarGroupModule,
+    MultiSelectModule,
+    TableModule
   ]
 })
 export class PrimengModule { }

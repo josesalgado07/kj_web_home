@@ -1,29 +1,32 @@
-<div>
-    <pre>
-        {{ information.headers | json }}
-    </pre>
-</div>
-<!-- <p-multiSelect
-    [options]="information"
-    [(ngModel)]="filtrosSeleccionados"
-    defaultLabel="Filtrar por"
-    optionLabel="name"
-    selectedItemsLabel="{0} items selected"
-></p-multiSelect>
+<form [formGroup]="tableForm">
+    <p-multiSelect
+        [options]="information"
+        formControlName="filtros"
+        defaultLabel="Filtrar por"
+        optionLabel="name"
+        selectedItemsLabel="{0} items selected"
+    ></p-multiSelect>
 
-<div class="card">
-    <p-table responsiveLayout="scroll" [value]="information">
-        <ng-template pTemplate="header" let-data>
+    <p-table
+        [columns]="information.headers"
+        [value]="information.data"
+        [resizableColumns]="true"
+        [responsive]="true"
+        responsiveLayout="scroll"
+    >
+        <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let header of data.headers">
-                    {{ header.label }}
+                <th scope="columna" class="white-space" *ngFor="let col of columns" [style.width]="col.width" pResizableColumn>
+                    {{ col.header | translate }}
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-data>
-            <tr *ngFor="let col of data.data">
-                <td>{{ obtenerValor(col) }}</td>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+            <tr>
+                <td *ngFor="let col of columns" class="white-space" [style.width]="col.width">
+                    {{ obtenerValor(rowData, col.field) }}
+                </td>
             </tr>
         </ng-template>
     </p-table>
-</div> -->
+</form>

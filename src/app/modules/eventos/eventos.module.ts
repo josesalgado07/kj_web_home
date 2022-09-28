@@ -25,7 +25,6 @@ import { SharedModule } from '@shared/shared.module';
 
     //standalone components
     CalendarComponent,
-    TableFilterComponent,
     SharedModule
   ]
 })

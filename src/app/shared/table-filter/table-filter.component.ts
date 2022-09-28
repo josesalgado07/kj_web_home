@@ -1,34 +1,31 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  standalone: true,
   selector: 'kj-table-filter',
-  imports: [CommonModule],
   templateUrl: './table-filter.component.html',
   styleUrls: ['./table-filter.component.scss']
 })
 export class TableFilterComponent implements OnInit {
 
-  @Input() set information(value: any) {
-    this._information = value;
-  }
-
-  get information(): any {
-    return this._information;
-  }
-
-  private _information: any;
+  @Input() information: any;
 
   filtrosSeleccionados = [];
 
-  constructor() { }
+  tableForm: FormGroup = this.fb.group({
+    filtros: [''],
+    busqueda: ['']
+  });
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
   }
 
-  obtenerValor(rowData: any, col: string) {
-    eval(`rowData.${col}`)
+  obtenerValor(rowData: any, col: string): string {
+    return eval(`rowData.${col}`);
   }
 
 }

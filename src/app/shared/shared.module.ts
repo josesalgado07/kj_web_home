@@ -5,6 +5,8 @@ import { InputTextComponent } from './input-text/input-text.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TableFilterComponent } from './table-filter/table-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'src/assets/i18n/', '.json');
@@ -12,11 +14,13 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 @NgModule({
   declarations: [
-    InputTextComponent
+    InputTextComponent,
+    TableFilterComponent
   ],
   imports: [
     CommonModule,
     PrimengModule,
+    ReactiveFormsModule,
 
     TranslateModule.forChild({
       loader: {
@@ -28,8 +32,9 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   exports: [
     PrimengModule,
+    TranslateModule,
     InputTextComponent,
-    TranslateModule
+    TableFilterComponent
   ]
 })
 export class SharedModule { }

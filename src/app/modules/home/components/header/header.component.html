@@ -1,10 +1,11 @@
-<p-menubar>
+<p-menubar [model]="items">
     <ng-template pTemplate="start">
-        <img src="assets/logos/kinjo.png" height="30" class="mr-2">
-        <span>Kinjo</span>
-        <!-- <p>Kinjo</p> -->
+      <!-- <img src="/assets/images/kinjo.png" height="40" class="p-mr-3" alt=""> -->
     </ng-template>
     <ng-template pTemplate="end">
-        <input type="text" pInputText placeholder="Search">
+      <label class="mr-1">
+        {{ username | titlecase }}
+      </label>
+      <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
     </ng-template>
-</p-menubar>
+  </p-menubar>

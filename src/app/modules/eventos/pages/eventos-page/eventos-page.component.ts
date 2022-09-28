@@ -9,10 +9,6 @@ export class EventosPageComponent implements OnInit {
 
   data = {
     headers: [{
-      field: 'id',
-      label: 'Id',
-      hidden: true
-    }, {
       field: 'nombre',
       label: 'Nombre'
     }, {
@@ -20,11 +16,9 @@ export class EventosPageComponent implements OnInit {
       label: 'Fecha'
     }],
     data: [{
-      id: 1,
       nombre: 'Asamblea',
       fecha: '03/09/2022'
     }, {
-      id: 2,
       nombre: 'Reunión general',
       fecha: '05/09/2022'
     }]
