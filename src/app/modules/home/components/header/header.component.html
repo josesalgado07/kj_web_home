@@ -1,11 +1,20 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="start">
-      <!-- <img src="/assets/images/kinjo.png" height="40" class="p-mr-3" alt=""> -->
-    </ng-template>
-    <ng-template pTemplate="end">
-      <label class="mr-1">
-        {{ username | titlecase }}
-      </label>
-      <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
-    </ng-template>
-  </p-menubar>
+<p-menubar>
+  <ng-template pTemplate="start">
+    <!-- <img src="/assets/images/kinjo.png" height="40" class="p-mr-3" alt=""> -->
+    <!-- <button type="text" pButton label="Click me" (click)="show($event)"></button> -->
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-bars"
+      class="p-button-rounded p-button-text p-button-secondary"
+      (click)="show($event)"
+    ></button>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <label class="mr-1">
+      {{ username | titlecase }}
+    </label>
+    <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
+  </ng-template>
+</p-menubar>

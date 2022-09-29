@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MenuComponent } from '@modules/home/components/menu/menu.component';
 
 @Component({
   selector: 'kj-home',
@@ -8,11 +8,15 @@ import { MenuItem } from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('menuC') menuComponent!: MenuComponent;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
+  showMenu(show: any) {
+    this.menuComponent.menu.toggle(show);
+  }
 
 }

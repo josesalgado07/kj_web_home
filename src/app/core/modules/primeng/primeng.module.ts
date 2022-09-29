@@ -13,6 +13,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 @NgModule({
   declarations: [],
@@ -29,7 +30,8 @@ import { TableModule } from 'primeng/table';
     AvatarModule,
     AvatarGroupModule,
     MultiSelectModule,
-    TableModule
+    TableModule,
+    AutoFocusModule
   ],
   exports: [
     CardModule,
@@ -43,7 +45,8 @@ import { TableModule } from 'primeng/table';
     AvatarModule,
     AvatarGroupModule,
     MultiSelectModule,
-    TableModule
+    TableModule,
+    AutoFocusModule
   ]
 })
 export class PrimengModule { }

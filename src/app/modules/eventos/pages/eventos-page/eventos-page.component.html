@@ -1,17 +1,32 @@
-<p-panel >
+<p-panel>
     <ng-template pTemplate="header">
-        Eventos
+        {{ 'EVENTOS.title' | translate }}
     </ng-template>
 
-    <div class="container mt-3">
-        <div class="grid">
-            <div class="col-7">
-                <kj-table-filter [information]="data"></kj-table-filter>
+    <div class="mt-3">
+        <div class="grid flex md:flex-row-reverse">
+            <div class="col-12 md:col-6 lg:col-5 grid flex justify-content-end">
+                <button
+                    pButton
+                    label="Nuevo"
+                    pRipple
+                    type="button"
+                    (click)="showDialog()"
+                    icon="pi pi-plus"
+                ></button>
+
+                <p-calendar
+                    styleClass="w-12"
+                    class="col-12 pr-0"
+                    [(ngModel)]="timeNow"
+                    [inline]="true"
+                ></p-calendar>
             </div>
-            <div class="col-5">
-                <!-- <kj-calendar></kj-calendar> -->
-                <p-calendar [(ngModel)]="timeNow" [inline]="true"></p-calendar>
+            <div class="col-12 md:col-6 lg:col-7">
+                <kj-table-filter [information]="data"></kj-table-filter>
             </div>
         </div>
     </div>
 </p-panel>
+
+<kj-eventos-add-page #eventosAdd></kj-eventos-add-page>

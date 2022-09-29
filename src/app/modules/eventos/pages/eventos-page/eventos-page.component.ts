@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EventosAddPageComponent } from '../eventos-add-page/eventos-add-page.component';
 
 @Component({
   selector: 'kj-eventos-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eventos-page.component.scss']
 })
 export class EventosPageComponent implements OnInit {
+
+  @ViewChild('eventosAdd') eventosAddPageComponent!: EventosAddPageComponent;
 
   data = {
     headers: [{
@@ -29,6 +32,10 @@ export class EventosPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showDialog() {
+    this.eventosAddPageComponent.showDialog();
   }
 
 }

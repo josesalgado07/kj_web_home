@@ -1,22 +1,86 @@
-<div class="grid justify-content-center">
-    <p-card header="Registrar Evento" class="col-8">
-        <form>
-            <div class="p-fluid grid">
-                <kj-input-text class="field col-12 md:col-6" label="Nombre"></kj-input-text>
-    
-                <kj-input-text class="field col-12 md:col-6" label="Destinatarios"></kj-input-text>
-                
-                <kj-calendar class="field col-12 md:col-6" label="Fecha"></kj-calendar>
-                
-                <kj-input-text class="field col-12 md:col-6" label="Tipo de Evento"></kj-input-text>
+<p-dialog
+    header="{{ 'EVENTOS.txtRegistro' | translate }}"
+    [(visible)]="showModal"
+    [draggable]=false
+    styleClass="w-11 md:w-6"
+    (onHide)="reset()"
+    >
 
-                <div class="field col-12 md:col-6">
-                    <span class="p-float-label">
-                        <textarea inputId="descripcion" rows="3" pInputTextarea></textarea>
-                        <label for="descripcion">Descripción</label>
-                    </span>
+    <form [formGroup]="eventoForm" (ngSubmit)="registrar()">
+        <div class="grid p-fluid">
+            <div class="field col-12 md:col-6">
+                <label>{{ 'EVENTOS.txtNombre' | translate }}</label>
+                <input type="text" [pAutoFocus]=true pInputText formControlName="nombre">
+                <div *ngIf="formErrors.mostrarError(eventoForm, 'nombre') && (nombre.dirty || nombre.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(eventoForm, 'nombre') | translate
+                        }}
+                    </small>
                 </div>
             </div>
-        </form>
-    </p-card>
-</div>
+
+            <div class="field col-12 md:col-6">
+                <label>{{ 'EVENTOS.txtDestinatario' | translate }}</label>
+                <input type="text" pInputText formControlName="destinatarios">
+                <div *ngIf="formErrors.mostrarError(eventoForm, 'destinatarios') && (destinatarios.dirty || destinatarios.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(eventoForm, 'destinatarios') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label>{{ 'EVENTOS.txtFecha' | translate }}</label>
+                <p-calendar
+                    formControlName="fecha"
+                    appendTo="body"
+                    [minDate]="minDate"
+                ></p-calendar>
+                <div *ngIf="formErrors.mostrarError(eventoForm, 'fecha') && (fecha.dirty || fecha.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(eventoForm, 'fecha') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label>{{ 'EVENTOS.txtTipo' | translate }}</label>
+                <input type="text" pInputText formControlName="tipo">
+                <div *ngIf="formErrors.mostrarError(eventoForm, 'tipo') && (tipo.dirty || tipo.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(eventoForm, 'tipo') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="field col-12">
+                <label for="descripcion">{{ 'EVENTOS.txtDescripcion' | translate }}</label>
+                <textarea
+                    id="descripcion"
+                    rows="3"
+                    pInputTextarea
+                    formControlName="descripcion"
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                ></textarea>
+                <div *ngIf="formErrors.mostrarError(eventoForm, 'descripcion') && (descripcion.dirty || descripcion.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(eventoForm, 'descripcion') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="flex justify-content-end col-12">
+                <p-button label="Guardar" type="submit" [disabled]="eventoForm.invalid"></p-button>
+            </div>
+        </div>
+    </form>
+</p-dialog>

@@ -1,4 +1,11 @@
-<div class="flex justify-content-center">
+<div class="flex justify-content-center" *ngIf="!popup">
     <img src="/assets/images/kinjo.png" class="p-mr-3" alt="">
 </div>
-<p-menu [model]="items"></p-menu>
+
+<!-- Menu dinamico -->
+<p-menu
+    #menu
+    appendTo="body"
+    [model]="items"
+    [popup]="popup"
+></p-menu>

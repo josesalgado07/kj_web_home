@@ -9,7 +9,7 @@
                 <div *ngIf="formErrors.mostrarError(loginForm, 'usuario') && (usuario.dirty || usuario.touched)">
                     <small class="p-error">
                         {{
-                            'LOGIN.FormErrors.' + formErrors.errorMsg(loginForm, 'usuario') | translate
+                            'FormErrors.' + formErrors.errorMsg(loginForm, 'usuario') | translate
                         }}
                     </small>
                 </div>
@@ -22,7 +22,7 @@
                 <div *ngIf="formErrors.mostrarError(loginForm, 'contrasena') && (contrasena.dirty || contrasena.touched)">
                     <small class="p-error">
                         {{
-                            'LOGIN.FormErrors.' + formErrors.errorMsg(loginForm, 'contrasena') | translate
+                            'FormErrors.' + formErrors.errorMsg(loginForm, 'contrasena') | translate
                         }}
                     </small>
                 </div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
 
 @Component({
     selector: 'kj-menu',
@@ -8,12 +9,21 @@ import { MenuItem } from 'primeng/api';
     styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-    
+
+    @ViewChild('menu') menu!: Menu;
+    @Input('popup') popup: boolean = false;
+
     items: MenuItem[] = [];
 
-    constructor(private router: Router) { }
+    constructor(
+        private router: Router
+    ) { }
 
     ngOnInit(): void {
+        this.loadMenu();
+    }
+
+    loadMenu() {
         this.items = [{
             label: 'Administrador',
             items: [{
@@ -47,5 +57,4 @@ export class MenuComponent implements OnInit {
             ]
         }];
     }
-
 }

@@ -1,5 +1,9 @@
-::ng-deep.ui-menubar .ui-menubar-root-list {
+::ng-deep .ui-menubar .ui-menubar-root-list {
     padding-left: 13em !important;
+}
+
+::ng-deep .p-menubar-button {
+    display: none !important;
 }
 
 img#logo {

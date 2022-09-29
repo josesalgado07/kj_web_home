@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,21 +7,18 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
+  @Output() openMenu = new EventEmitter<any>();
 
   username: string = "Jose Salgado";
-  items: MenuItem[] = [];
-
+  
   constructor() { }
 
+  show(event: any) {
+    this.openMenu.emit(event);
+  }
+  
   ngOnInit(): void {
-    this.items = [
-      {
-          icon:'pi pi-fw pi-bars',
-          command: () => {
-            alert("Hola")
-          }
-      }
-    ];
   }
 
 }

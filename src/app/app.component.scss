@@ -2,4 +2,28 @@
     .title {
         font-family: Poppins-Bold;
     }
+
+    @media (max-width: 575px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 767px) {
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hidden-md {
+            display: none !important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .hidden-lg {
+            display: none !important;
+        }
+    }
 }

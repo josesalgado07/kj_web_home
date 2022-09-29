@@ -1,4 +1,7 @@
 {
+    "GENERAL": {
+        "filtro": "Filtrar por"
+    },
     "LOGIN": {
         "titulo": "Inicio de Sesión",
         "txtUsuario": "Usuario",
@@ -6,10 +9,7 @@
         "btnIngresar": "Ingresar",
         "txtCrear": "Crear cuenta",
         "txtOlvido": "¿Olvidaste la contraseña?",
-        "txtMostrarPass": "Mostrar contraseña",
-        "FormErrors" : {
-            "required": "Campo obligatorio"
-        }
+        "txtMostrarPass": "Mostrar contraseña"
     },
     "REGISTRAR": {
         "titulo": "Crea tu cuenta",
@@ -18,12 +18,22 @@
         "txtUsuario": "Nombre de usuario",
         "txtPassword": "Contraseña",
         "txtConfPassword": "Confirmación",
-        "btnRegistrar": "Registrar",
-        "FormErrors" : {
-            "required": "Campo obligatorio"
-        }
+        "btnRegistrar": "Registrar"
     },
-    "GENERAL": {
-        "filtro": "Filtrar por"
+    "EVENTOS": {
+        "title": "Eventos",
+        "txtRegistro": "Registrar evento",
+        "txtNombre": "Nombre del evento",
+        "txtDestinatario": "Destinatarios",
+        "txtFecha": "Fecha del evento",
+        "txtTipo": "Tipo de evento",
+        "txtDescripcion": "Descripción"
+    },
+    "ESPACIOS": {
+        "title": "Espacios"
+    },
+    "FormErrors" : {
+        "required": "Campo obligatorio"
     }
+    
 }
