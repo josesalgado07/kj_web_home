@@ -14,6 +14,18 @@ const routes: Routes = [
       {
         path: 'espacios',
         loadChildren: () => import('../espacios/espacios.module').then(m => m.EspaciosModule)
+      },
+      {
+        path: 'multas',
+        loadChildren: () => import('../multas/multas.module').then(m => m.MultasModule)
+      },
+      {
+        path: 'proyectos',
+        loadChildren: () => import('../proyectos/proyectos.module').then(m => m.ProyectosModule)
+      },
+      {
+        path: '**',
+        redirectTo: '../login'
       }
     ]
   }

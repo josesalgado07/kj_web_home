@@ -14,9 +14,15 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { AutoFocusModule } from 'primeng/autofocus';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     CardModule,
@@ -31,7 +37,11 @@ import { AutoFocusModule } from 'primeng/autofocus';
     AvatarGroupModule,
     MultiSelectModule,
     TableModule,
-    AutoFocusModule
+    AutoFocusModule,
+    DynamicDialogModule,
+    DialogModule,
+    ToastModule,
+    SplitButtonModule
   ],
   exports: [
     CardModule,
@@ -46,7 +56,15 @@ import { AutoFocusModule } from 'primeng/autofocus';
     AvatarGroupModule,
     MultiSelectModule,
     TableModule,
-    AutoFocusModule
+    AutoFocusModule,
+    DynamicDialogModule,
+    DialogModule,
+    ToastModule,
+    SplitButtonModule
+  ],
+  providers: [
+    DialogService,
+    MessageService
   ]
 })
 export class PrimengModule { }

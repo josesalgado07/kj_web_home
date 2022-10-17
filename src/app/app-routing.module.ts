@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@core/guards/auth.guard';
 import { LoginComponent } from '@modules/auth/pages/login/login.component';
 import { RegistrarComponent } from '@modules/auth/pages/registrar/registrar.component';
 
@@ -14,12 +15,13 @@ const routes: Routes = [
   },
   {
     path: 'app',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
-  {
-    path: '**',
-    redirectTo: 'login'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'login'
+  // }
 ];
 
 @NgModule({

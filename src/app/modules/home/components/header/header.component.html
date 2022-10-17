@@ -12,9 +12,21 @@
     ></button>
   </ng-template>
   <ng-template pTemplate="end">
-    <label class="mr-1">
-      {{ username | titlecase }}
-    </label>
-    <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
+    <ul class="flex align-items-center">
+      <li>
+        <label class="mr-2">
+          {{ username | titlecase }}
+        </label>
+      </li>
+      <li>
+        <button pButton pRipple type="button" icon="pi pi-user"
+          class="p-button-rounded p-button-secondary p-button-outlined"
+          (click)="menu.toggle($event)"
+        ></button>
+        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+      </li>
+    </ul>
+
+    <!-- <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar> -->
   </ng-template>
 </p-menubar>

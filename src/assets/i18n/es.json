@@ -4,12 +4,13 @@
     },
     "LOGIN": {
         "titulo": "Inicio de Sesión",
-        "txtUsuario": "Usuario",
+        "txtEmail": "Email",
         "txtPassword": "Contraseña",
         "btnIngresar": "Ingresar",
         "txtCrear": "Crear cuenta",
         "txtOlvido": "¿Olvidaste la contraseña?",
-        "txtMostrarPass": "Mostrar contraseña"
+        "txtMostrarPass": "Mostrar contraseña",
+        "txtSelectRol": "Seleccione un rol"
     },
     "REGISTRAR": {
         "titulo": "Crea tu cuenta",
@@ -32,8 +33,18 @@
     "ESPACIOS": {
         "title": "Espacios"
     },
+    "PROYECTOS": {
+        "title": "Proyectos",
+        "txtAgregar": "Agregar proyecto"
+    },
+    "MULTAS": {
+        "title": "Multas"
+    },
     "FormErrors" : {
         "required": "Campo obligatorio"
+    },
+    "BTN": {
+        "agregar": "Agregar"
     }
     
 }

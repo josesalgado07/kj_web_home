@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import { registerLocaleData } from '@angular/common';
 import { LoginComponent } from '@modules/auth/pages/login/login.component';
 import { PrimengModule } from '@core/modules/primeng/primeng.module';
 import { RegistrarComponent } from '@modules/auth/pages/registrar/registrar.component';
+import { SeleccionarRolComponent } from './modules/auth/components/seleccionar-rol/seleccionar-rol.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeEn, 'en');
@@ -29,7 +30,8 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    SeleccionarRolComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,11 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   providers: [
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    SeleccionarRolComponent
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

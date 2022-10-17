@@ -3,35 +3,32 @@
         <p class="mt-0 pt-0 title md:text-2xl">{{ 'LOGIN.titulo' | translate }}</p>
         <form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="ingresar()">
             <div class="field">
-                <label>{{ 'LOGIN.txtUsuario' | translate }}</label>
-                <input id="username" type="text" pInputText formControlName="usuario">
+                <label>{{ 'LOGIN.txtEmail' | translate }}</label>
+                <input id="username" type="text" pInputText formControlName="email">
 
-                <div *ngIf="formErrors.mostrarError(loginForm, 'usuario') && (usuario.dirty || usuario.touched)">
+                <div *ngIf="formErrors.mostrarError(loginForm, 'email') && (email.dirty || email.touched)">
                     <small class="p-error">
                         {{
-                            'FormErrors.' + formErrors.errorMsg(loginForm, 'usuario') | translate
+                        'FormErrors.' + formErrors.errorMsg(loginForm, 'email') | translate
                         }}
                     </small>
                 </div>
             </div>
-            
+
             <div class="field">
                 <label>{{ 'LOGIN.txtPassword' | translate }}</label>
-                <input id="password" [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="contrasena">
+                <input id="password" [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="password">
 
-                <div *ngIf="formErrors.mostrarError(loginForm, 'contrasena') && (contrasena.dirty || contrasena.touched)">
+                <div *ngIf="formErrors.mostrarError(loginForm, 'password') && (password.dirty || password.touched)">
                     <small class="p-error">
                         {{
-                            'FormErrors.' + formErrors.errorMsg(loginForm, 'contrasena') | translate
+                        'FormErrors.' + formErrors.errorMsg(loginForm, 'password') | translate
                         }}
                     </small>
                 </div>
             </div>
             <div class="field">
-                <p-checkbox 
-                    value="true"
-                    label="{{ 'LOGIN.txtMostrarPass' | translate }}"
-                    (onChange)="hide()">
+                <p-checkbox value="true" label="{{ 'LOGIN.txtMostrarPass' | translate }}" (onChange)="hide()">
                 </p-checkbox>
             </div>
             <div class="flex justify-content-end">
@@ -45,11 +42,7 @@
                     </a>
                 </div>
                 <div class=" flex align-items-end">
-                    <button
-                        pButton
-                        type="submit"
-                        class="p-button-primary"
-                        [disabled]="loginForm.invalid">
+                    <button pButton type="submit" class="p-button-primary" [disabled]="loginForm.invalid">
                         {{ 'LOGIN.btnIngresar' | translate }}
                     </button>
                 </div>
@@ -57,3 +50,5 @@
         </form>
     </p-card>
 </div>
+
+<p-toast ></p-toast>

@@ -1,0 +1,6 @@
+<div class="row col-12" *ngFor="let rol of roles">
+    <button pButton pRipple 
+        class="p-button-outlined col-12" (click)="seleccionarRol(rol.id)">
+        {{ rol.descripcion | titlecase }}
+    </button>
+</div>
