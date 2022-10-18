@@ -19,6 +19,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     DynamicDialogModule,
     DialogModule,
     ToastModule,
-    SplitButtonModule
+    SplitButtonModule,
+    DropdownModule
   ],
   exports: [
     CardModule,
@@ -60,7 +62,8 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     DynamicDialogModule,
     DialogModule,
     ToastModule,
-    SplitButtonModule
+    SplitButtonModule,
+    DropdownModule
   ],
   providers: [
     DialogService,

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUsuarios: '/api/usuario'
+  apiUsuarios: '/api/usuario',
+  apiProyecto: '/api/proyecto'
 };
 
 /*

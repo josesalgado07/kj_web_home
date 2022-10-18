@@ -10,7 +10,7 @@
         <div class="grid p-fluid">
             <div class="field col-12 md:col-6">
                 <label>{{ 'EVENTOS.txtNombre' | translate }}</label>
-                <input type="text" [pAutoFocus]=true pInputText formControlName="nombre">
+                <input type="text" pInputText formControlName="nombre">
                 <div *ngIf="formErrors.mostrarError(eventoForm, 'nombre') && (nombre.dirty || nombre.touched)">
                     <small class="p-error">
                         {{

@@ -35,7 +35,12 @@
     },
     "PROYECTOS": {
         "title": "Proyectos",
-        "txtAgregar": "Agregar proyecto"
+        "txtAgregar": "Agregar proyecto",
+        "txtNombre": "Nombre del proyecto",
+        "txtTipo": "Tipo de proyecto",
+        "txtDireccion": "Dirección",
+        "txtEstrato": "Estrato",
+        "txtComuna": "Comuna"
     },
     "MULTAS": {
         "title": "Multas"

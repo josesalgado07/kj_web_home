@@ -2,4 +2,52 @@
     <ng-template pTemplate="header">
         {{ 'PROYECTOS.txtAgregar' | translate }}
     </ng-template>
+
+    <form [formGroup]="proyectoForm" (ngSubmit)="registrar()">
+        <div class="grid p-fluid">
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtNombre' | translate }}</label>
+                <input type="text" [pAutoFocus]=true pInputText formControlName="nombre">
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'nombre') && (nombre.dirty || nombre.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'nombre') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtTipo' | translate }}</label>
+                <p-dropdown [options]="listaTipos$ | async" formControlName="tipo"
+                    optionLabel="descripcion" optionValue="id"></p-dropdown>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtDireccion' | translate }}</label>
+                <input type="text" pInputText formControlName="direccion">
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'direccion') && (direccion.dirty || direccion.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'direccion') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtEstrato' | translate }}</label>
+                <p-dropdown [options]="listaEstratos$ | async" formControlName="estrato"
+                    optionLabel="descripcion_completa" optionValue="id"></p-dropdown>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtComuna' | translate }}</label>
+                <input type="text" pInputText formControlName="direccion">
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'direccion') && (direccion.dirty || direccion.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'direccion') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+        </div>
+    </form>
 </p-panel>

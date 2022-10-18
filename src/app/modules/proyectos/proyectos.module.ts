@@ -6,6 +6,7 @@ import { ProyectosHomeComponent } from './pages/proyectos-home/proyectos-home.co
 import { PrimengModule } from '@core/modules/primeng/primeng.module';
 import { SharedModule } from '@shared/shared.module';
 import { ProyectoAddComponent } from './components/proyecto-add/proyecto-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,9 +16,10 @@ import { ProyectoAddComponent } from './components/proyecto-add/proyecto-add.com
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ProyectosRoutingModule,
     PrimengModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ProyectosModule { }
