@@ -11,3 +11,7 @@ export interface UsuarioLogin extends Pick<Usuario, 'email'>{
     password: string;
 }
 
+export interface UsuarioLoginResponse {
+    jwt: string;
+    message: string
+}

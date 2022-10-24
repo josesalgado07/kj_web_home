@@ -18,7 +18,7 @@
             </div>
             <div class="field col-12 md:col-6">
                 <label>{{ 'PROYECTOS.txtTipo' | translate }}</label>
-                <p-dropdown [options]="listaTipos$ | async" formControlName="tipo"
+                <p-dropdown [options]="(listaTipos$ | async)!" formControlName="proyecto_tipo_id"
                     optionLabel="descripcion" optionValue="id"></p-dropdown>
             </div>
             <div class="field col-12 md:col-6">
@@ -34,20 +34,79 @@
             </div>
             <div class="field col-12 md:col-6">
                 <label>{{ 'PROYECTOS.txtEstrato' | translate }}</label>
-                <p-dropdown [options]="listaEstratos$ | async" formControlName="estrato"
+                <p-dropdown [options]="(listaEstratos$! | async)!" formControlName="estrato_id"
                     optionLabel="descripcion_completa" optionValue="id"></p-dropdown>
             </div>
             <div class="field col-12 md:col-6">
                 <label>{{ 'PROYECTOS.txtComuna' | translate }}</label>
-                <input type="text" pInputText formControlName="direccion">
-                <div *ngIf="formErrors.mostrarError(proyectoForm, 'direccion') && (direccion.dirty || direccion.touched)">
+                <input type="text" pInputText formControlName="comuna">
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'comuna') && (comuna.dirty || comuna.touched)">
                     <small class="p-error">
                         {{
-                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'direccion') | translate
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'comuna') | translate
                         }}
                     </small>
                 </div>
             </div>
+
+            <div class="field col-12 md:col-6">
+                <label>{{ 'PROYECTOS.txtDenominacion' | translate }}</label>
+                <p-dropdown [options]="(listaDenominacion$ | async)!" formControlName="denominacion_id"
+                    optionLabel="descripcion" optionValue="id"></p-dropdown>
+            </div>
+        </div>
+        
+        <p-divider></p-divider>
+
+        <div class="grid p-fluid">
+            <div class="field col-12 md:col-4">
+                <label>
+                    {{ (isApartments ? 'PROYECTOS.txtCantTorres' : 'PROYECTOS.txtCantCasas' ) | translate }}
+                </label>
+                <p-inputNumber inputId="integeronly" [useGrouping]=false formControlName="cantidad_torres"></p-inputNumber>
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'cantidad_torres') && (cantidad_torres.dirty || cantidad_torres.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'cantidad_torres') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-4" *ngIf="isApartments">
+                <label>
+                    {{ 'PROYECTOS.txtCantPisos' | translate }}
+                </label>
+                <p-inputNumber inputId="integeronly" [useGrouping]=false formControlName="cantidad_pisos"></p-inputNumber>
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'cantidad_pisos') && (cantidad_pisos.dirty || cantidad_pisos.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'cantidad_pisos') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="field col-12 md:col-4" *ngIf="isApartments">
+                <label>
+                    {{ 'PROYECTOS.txtCantAptos' | translate }}
+                </label>
+                <p-inputNumber inputId="integeronly" [useGrouping]=false formControlName="cantidad_apartamentos"></p-inputNumber>
+                <div *ngIf="formErrors.mostrarError(proyectoForm, 'cantidad_apartamentos') && (cantidad_apartamentos.dirty || cantidad_apartamentos.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(proyectoForm, 'cantidad_apartamentos') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class=" flex align-items-end">
+            <button pButton type="submit" class="p-button-primary" [disabled]="proyectoForm.invalid">
+                {{ 'BTN.guardar' | translate }}
+            </button>
         </div>
     </form>
 </p-panel>

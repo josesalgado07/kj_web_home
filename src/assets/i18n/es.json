@@ -34,22 +34,46 @@
         "title": "Espacios"
     },
     "PROYECTOS": {
+        "new": "Nuevo proyecto",
         "title": "Proyectos",
         "txtAgregar": "Agregar proyecto",
         "txtNombre": "Nombre del proyecto",
         "txtTipo": "Tipo de proyecto",
         "txtDireccion": "Dirección",
         "txtEstrato": "Estrato",
-        "txtComuna": "Comuna"
+        "txtComuna": "Comuna",
+        "txtCantTorres": "Cantidad de torres",
+        "txtCantCasas": "Cantidad de casas",
+        "txtDenominacion": "Denominación",
+        "txtCantPisos": "Cantidad de pisos por torre",
+        "txtCantAptos": "Cantidad de apartamentos por piso",
+        "txtNoHayProyectos": "No hay proyectos registrados",
+        "txtDisponible": "Disponible",
+        "CONTENIDO": {
+            "optDetalles": "Detalles",
+            "optResidencias": "Residencias",
+            "optAsignar": "Asignar",
+            "optEspacios": "Espacios"
+        }
+    },
+    "APARTAMENTOS": {
+        "txtTorre": "Torre",
+        "txtCasa": "Casa",
+        "txtApartamento": "Apartamento",
+        "txtUsuario": "Ingrese Cédula"
     },
     "MULTAS": {
         "title": "Multas"
     },
     "FormErrors" : {
-        "required": "Campo obligatorio"
+        "required": "Campo obligatorio",
+        "min": "Ingrese una cantidad valida",
+        "max": "Ingrese una cantidad valida"
     },
     "BTN": {
-        "agregar": "Agregar"
+        "agregar": "Agregar",
+        "guardar": "Guardar",
+        "asignar": "Asignar"
     }
     
 }

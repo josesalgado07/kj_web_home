@@ -20,6 +20,11 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { DropdownModule } from 'primeng/dropdown';
+import { DividerModule } from 'primeng/divider';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { TabViewModule } from 'primeng/tabview';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     ToastModule,
     SplitButtonModule,
-    DropdownModule
+    DropdownModule,
+    DividerModule,
+    InputNumberModule,
+    TabViewModule,
+    MessagesModule,
+    MessageModule
   ],
   exports: [
     CardModule,
@@ -63,7 +73,12 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     ToastModule,
     SplitButtonModule,
-    DropdownModule
+    DropdownModule,
+    DividerModule,
+    InputNumberModule,
+    TabViewModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [
     DialogService,

@@ -17,4 +17,11 @@ export class ToastService {
       detail: message
     });
   }
+
+  success(message: string) {
+    this.messageService.add({
+      severity:'success',
+      detail: message
+    });
+  }
 }

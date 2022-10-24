@@ -1,0 +1,42 @@
+<div *ngIf="(proyectoInfo | async) as proyecto">
+    <div class="grid">
+        <div class="text-indigo-500 md:col-3">
+            Nombre del proyecto:
+        </div>
+        <div class="md:col-9">
+            {{ proyecto.nombre }}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="text-indigo-500 col-3">
+            Dirección:
+        </div>
+        <div class="md:col-9">
+            {{ proyecto.direccion }}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="text-indigo-500 col-3">
+            Estrato:
+        </div>
+        <div class="md:col-9">
+            {{ proyecto.Estrato.numero + ' - ' + proyecto.Estrato.descripcion }}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="text-indigo-500 col-3">
+            Tipo de Proyecto:
+        </div>
+        <div class="md:col-9">
+            {{ proyecto.ProyectoTipo.descripcion }}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="text-indigo-500 col-3">
+            Cantidad de viviendas
+        </div>
+        <div class="md:col-9">
+            {{ calcularCantidadDeViviendas(proyecto) }}
+        </div>
+    </div>
+</div>

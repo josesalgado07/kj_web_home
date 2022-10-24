@@ -1,0 +1,28 @@
+<p-table [value]="listaApartamentos$ | async">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                {{ tipoProyecto === 1 ? 'Torre' : 'Casa' }} </th>
+            <th *ngIf="tipoProyecto == 1">Apartamento</th>
+            <th>Propietario</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-apartamento>
+        <tr>
+            <td>{{apartamento.torre}}</td>
+            <td *ngIf="tipoProyecto == 1">{{apartamento.numero}}</td>
+
+            <td>
+                <ng-container *ngIf="apartamento?.Usuarios?.length; else noData">
+                    <div class="text-indigo-500">
+                        {{ apartamento.Usuarios[0].nombres + ' ' + apartamento.Usuarios[0].apellidos }}
+                    </div>
+                </ng-container>
+
+                <ng-template #noData>
+                    {{ 'PROYECTOS.txtDisponible' | translate }}
+                </ng-template>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

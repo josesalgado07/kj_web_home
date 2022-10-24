@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioLogin } from '@core/interfaces/usuario.interface';
+import { UsuarioLogin, UsuarioLoginResponse } from '@core/interfaces/usuario.interface';
+import { BYPASS_TOKEN } from '@core/util/context-token/context-token';
 import { Observable, take } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -15,8 +16,11 @@ export class AuthService {
     private router: Router
   ) { }
 
-  login(usuario: UsuarioLogin): Observable<any> {
-    return this.http.post(`${environment.apiUsuarios}/auth`, usuario)
+  login(usuario: UsuarioLogin): Observable<UsuarioLoginResponse> {
+    return this.http.post<UsuarioLoginResponse>(`${environment.apiUsuarios}/auth`, usuario,
+      {
+        context: new HttpContext().set(BYPASS_TOKEN, true)
+      })
       .pipe(take(1));
   }
 
@@ -56,6 +60,10 @@ export class AuthService {
       default:
         break;
     }
+  }
+
+  get authToken(): string {
+    return localStorage.getItem('jwt')!;
   }
 
   get jwt(): any {

@@ -16,7 +16,9 @@ export class FormErrorsService {
       required: () => 'required',
       pattern: () => 'pattern',
       minlength: () => 'minlength',
-      maxlength: () => 'maxlength'
+      maxlength: () => 'maxlength',
+      min: () => 'min',
+      max: () => 'max'
     };
 
     return mensajes[errorName](error);

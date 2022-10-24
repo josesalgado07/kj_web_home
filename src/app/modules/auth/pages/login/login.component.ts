@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { UsuarioLogin } from '@core/interfaces/usuario.interface';
+import { UsuarioLogin, UsuarioLoginResponse } from '@core/interfaces/usuario.interface';
 import { AuthService } from '@core/services/auth/auth.service';
 import { ToastService } from '@core/services/toast/toast.service';
 import { FormErrorsService } from '@core/util/form-errors/form-errors.service';
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.login(usuario)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: (response: any) => {
+        next: (response: UsuarioLoginResponse) => {
           if (response.jwt) {
             const { jwt } = response;
             this.authService.jwt = jwt;
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   showSelect() {
     let decodedJWT = this.authService.jwt;
-    let roles = decodedJWT.usuario.roles;
+    let roles = decodedJWT.usuario.Rols;
     
     if (roles.length > 1) {
       let header = this.translate.instant('LOGIN.txtSelectRol');

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import localeEs from '@angular/common/locales/es';
@@ -18,6 +18,7 @@ import { LoginComponent } from '@modules/auth/pages/login/login.component';
 import { PrimengModule } from '@core/modules/primeng/primeng.module';
 import { RegistrarComponent } from '@modules/auth/pages/registrar/registrar.component';
 import { SeleccionarRolComponent } from './modules/auth/components/seleccionar-rol/seleccionar-rol.component';
+import { AuthInterceptor } from '@core/interceptor/auth.interceptor';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeEn, 'en');
@@ -50,6 +51,11 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     })
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   entryComponents: [
     SeleccionarRolComponent

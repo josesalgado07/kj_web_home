@@ -1,0 +1,37 @@
+<p-panel>
+    <ng-template pTemplate="header">
+        {{ nombreProyecto }}
+    </ng-template>
+
+    <p-tabView *ngIf="loadProyect">
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <i class="pi pi-info-circle mr-2"></i>
+                <span>{{ 'PROYECTOS.CONTENIDO.optDetalles' | translate }}</span>
+            </ng-template>
+            <kj-proyecto-info></kj-proyecto-info>
+        </p-tabPanel>
+
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <i class="pi pi-building mr-2"></i>
+                <span>{{ 'PROYECTOS.CONTENIDO.optResidencias' | translate }}</span>
+            </ng-template>
+            <kj-proyecto-residencias></kj-proyecto-residencias>
+        </p-tabPanel>
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <i class="pi pi-user-plus mr-2"></i>
+                <span>{{ 'PROYECTOS.CONTENIDO.optAsignar' | translate }}</span>
+            </ng-template>
+            <kj-proyecto-asignar></kj-proyecto-asignar>
+        </p-tabPanel>
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <i class="pi pi-car mr-2"></i>
+                <span>{{ 'PROYECTOS.CONTENIDO.optEspacios' | translate }}</span>
+            </ng-template>
+            <kj-proyecto-espacios></kj-proyecto-espacios>
+        </p-tabPanel>
+    </p-tabView>
+</p-panel>

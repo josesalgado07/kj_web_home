@@ -1,0 +1,47 @@
+<div>
+    <form [formGroup]="propietarioForm" (ngSubmit)="asignar()">
+        <p>Al asignar con un usuario, quedara registrado al usuario como propietario</p>
+        <div class="grid p-fluid">
+            <ng-container *ngIf="tipoProyecto === 1; else apto">
+                <div class="field col-12 md:col-4">
+                    <label>{{ 'APARTAMENTOS.txtTorre' | translate }}</label>
+                    <p-dropdown [options]="listaTorres" formControlName="torre"
+                        optionLabel="torre" optionValue="torre"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>{{ 'APARTAMENTOS.txtApartamento' | translate }}</label>
+                    <p-dropdown [options]="listaDisponibles" formControlName="apartamento_id"
+                        optionLabel="numero" optionValue="id"></p-dropdown>
+                </div>
+            </ng-container>
+
+            <ng-template #apto>
+                <div class="field col-12 md:col-6">
+                    <label>{{ 'APARTAMENTOS.txtCasa' | translate }}</label>
+                    <p-dropdown [options]="listaDisponibles"
+                        optionLabel="torre" optionValue="id" formControlName="apartamento_id"></p-dropdown>
+                </div>
+            </ng-template>
+
+            <div class="field col-12 " [ngClass]="tipoProyecto === 1 ? 'md:col-4' : 'md:col-6'">
+                <label>{{ 'APARTAMENTOS.txtUsuario' | translate }}</label>
+                <input type="text" pInputText formControlName="documento">
+                <div *ngIf="formErrors.mostrarError(propietarioForm, 'documento') && (documento.dirty || documento.touched)">
+                    <small class="p-error">
+                        {{
+                            'FormErrors.' + formErrors.errorMsg(propietarioForm, 'documento') | translate
+                        }}
+                    </small>
+                </div>
+            </div>
+
+            <div class=" flex align-items-end">
+                <button pButton type="submit" class="p-button-primary" [disabled]="propietarioForm.invalid">
+                    {{ 'BTN.asignar' | translate }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<p-toast></p-toast>

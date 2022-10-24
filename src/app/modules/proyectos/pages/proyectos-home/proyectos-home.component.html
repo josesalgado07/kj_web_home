@@ -5,21 +5,40 @@
     <div class="grid p-fluid">
         <div class="col-2 ml-auto">
             <a pButton pRipple icon="pi pi-plus"
-                label="{{ 'BTN.agregar' | translate }}"
+                label="{{ 'PROYECTOS.new' | translate }}"
                 routerLink="/app/proyectos/add"></a>
         </div>
     </div>
-    <div class="grid p-fluid">
-        <div class="col-12 md:col-6 lg:col-4">
-            <p-card header="Simple Card" class="card">
-                <ng-template pTemplate="header">
-                    <!-- <img alt="Card" src="assets/showcase/images/usercard.png"> -->
-                </ng-template>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                    repudiandae numquam deserunt
-                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-                    neque quas!</p>
-            </p-card>
+    <div class="p-fluid col-12">
+        <div class="grid" *ngIf="(listProyectos$ | async) as proyectos" [style]="{'width':'100%'}">
+            <ng-container *ngIf="proyectos?.length; else noData">
+                <div class="col-12 md:col-6 lg:col-4" *ngFor="let proyecto of proyectos">
+                    <p-card class="card">
+                        <ng-template pTemplate="title">
+                            {{ proyecto.nombre }}
+                        </ng-template>
+        
+                        <div class="col-12 text-indigo-500">
+                            {{ 'PROYECTOS.txtDireccion' | translate }}:
+                        </div>
+                        <div class="col-12">
+                            {{ proyecto.direccion }}
+                        </div>
+                        
+                        <div class="flex justify-content-end">
+                            <a pButton pRipple icon="pi pi-external-link"
+                                class="p-button-rounded p-button-text"
+                                (click)="seleccionarProyecto(proyecto)"
+                                [routerLink]="['content']"
+                            ></a>
+                        </div>
+                    </p-card>
+                </div>
+            </ng-container>
+
+            <ng-template #noData>
+                <p-message severity="info" [style]="{'width':'100%'}" text="{{ 'PROYECTOS.txtNoHayProyectos' | translate }}"></p-message>
+            </ng-template>
         </div>
     </div>
 </p-panel>
